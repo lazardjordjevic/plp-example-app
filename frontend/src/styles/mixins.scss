@@ -1,0 +1,91 @@
+/// @name $brakepoins
+/// @example (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+// Map of named break points  (name: minimum width)
+// Order from small to large:
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px,
+  ) !default;
+
+/// Mixin to create min-width media query
+/// @name respond-from
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// @example respond-from('sm') -> @media (min-width: 576px) { @content; }
+@mixin respond-from($breakpoint) {
+
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+/// Mixin to create max-width media query
+/// @name respond-until
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// @example respond-until('md') -> @media (max-width: 768px) { @content; }
+@mixin respond-until($breakpoint) {
+
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Prints a media query based on the value
+    @media (max-width: calc(map-get($breakpoints, $breakpoint) - 0.02px)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+/// Mixin to create media query between two breakpoints
+/// @name respond-between
+/// @param {String} $from - Small breakpoint name
+/// @param {String} $to - Large breakpoint name
+/// @require $breakpoints
+/// @example respond-between('sm', 'xl) -> @media (min-width: 576px) and (max-width: 1200px) { @content; }
+@mixin respond-between($from, $to) {
+
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $from) and map-has-key($breakpoints, $to) {
+    $maxwidth: map-get($breakpoints, $to
+    );
+
+  // Prints a media query based on the value
+  @media (min-width: map-get($breakpoints, $from)) and (max-width: calc($maxwidth - 0.02px)) {
+    @content;
+  }
+}
+
+// If the key doesn't exist in the map
+@else {
+  @if map-has-key($breakpoints, $from) {
+    @warn "Unfortunately, no value could be retrieved from `#{$to}`. "
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+
+  @if map-has-key($breakpoints, $to) {
+    @warn "Unfortunately, no value could be retrieved from `#{$from}`. "
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+}

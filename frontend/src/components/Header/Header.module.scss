@@ -1,0 +1,10 @@
+@use 'src/styles/mixins' as bp;
+
+.header {
+  align-items: center;
+  background-color: #fff;
+  color: green;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@merkle/fronted-task",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/application-template/src",
+  "projectType": "application",
+  "targets": {
+    "nx-vercel-link-app": {},
+    "nx-vercel-pull-env-app": {},
+    "nx-vercel-env-vars": {},
+    "nx-lint": {},
+    "nx-test": {},
+    "nx-build": {},
+    "nx-deploy": {},
+    "nx-dev": {},
+    "nx-start": {}
+  }
+}
