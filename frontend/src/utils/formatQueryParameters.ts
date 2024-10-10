@@ -6,8 +6,6 @@ export const formatQueryParameters = (
 ) => {
 	const newQueryParameters = new URLSearchParams(queryParameters);
 
-	console.log("key value", queryParameters, key, value, isSelected);
-
 	// if the queryParameters are empty, add the key and value to the queryParameters
 	if (!queryParameters?.length) {
 		newQueryParameters.set(key, value);
@@ -22,8 +20,6 @@ export const formatQueryParameters = (
 	if (isSelected) {
 		newQueryParameters.delete(key, value);
 	}
-
-	console.log(" newQueryParameters.toString()", newQueryParameters.toString());
 
 	return newQueryParameters.toString();
 };

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useNewProductsContext } from "src/contexts/NewProductsContext";
+import { useProductsContext } from "src/contexts/ProductsContext";
 import classNames from "classnames";
 import style from "./FilterGroupButton.module.scss";
 
@@ -12,7 +12,7 @@ export default function ClientFilterGroupButton({
 	filterSelection,
 	groupCategory,
 }: ClientFilterGroupButtonProps) {
-	const { filterByGroup } = useNewProductsContext();
+	const { filterByGroup } = useProductsContext();
 	const [isSelected, setIsSelected] = useState(false);
 
 	const handleFilterGroupClick = useCallback(

@@ -4,11 +4,11 @@ import { useLabelsContext } from "src/contexts/LabelsContext";
 import ClientProductCard from "../ProductCard/ClientProductCard";
 import style from "./ProductList.module.scss";
 import type { ProductDataType } from "src/types/ProductsData";
-import { useNewProductsContext } from "src/contexts/NewProductsContext";
+import { useProductsContext } from "src/contexts/ProductsContext";
 
 export default function ClientProductList() {
 	const labelsContext = useLabelsContext();
-	const { filteredProducts } = useNewProductsContext();
+	const { filteredProducts } = useProductsContext();
 	const { showing, results } = labelsContext;
 
 	return (

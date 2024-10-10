@@ -1,9 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
 import style from "./FilterGroup.module.scss";
-import { useNewProductsContext } from "src/contexts/NewProductsContext";
-import classNames from "classnames";
 import ClientFilterGroupButton from "../FilterGroupButton/ClientFilterGroupButton";
 
 export type FilterGroupDataType = {

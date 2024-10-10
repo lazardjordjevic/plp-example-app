@@ -1,5 +1,3 @@
-// create new context
-
 import {
 	createContext,
 	useCallback,
@@ -14,7 +12,7 @@ import { fetchProducts } from "src/services/productsService";
 import { formatQueryParameters } from "src/utils/formatQueryParameters";
 import { formatQueryParametersSearch } from "src/utils/formatQueryParametersSearch";
 
-export type NewProductsContextType = {
+export type ProductsContextType = {
 	filteredProducts: ProductDataType[];
 	filterByGroup: (
 		groupCategory: string,
@@ -25,24 +23,24 @@ export type NewProductsContextType = {
 	submitSearch: (queryParameters: string) => void;
 };
 
-export type NewProductsProviderProps = {
+export type ProductsProviderProps = {
 	children: ReactNode;
 	value: ProductDataType[];
 };
 
-const NewProductsContext = createContext<NewProductsContextType>({
+const ProductsContext = createContext<ProductsContextType>({
 	filteredProducts: [],
 	filterByGroup: () => {},
 	products: [],
 	submitSearch: () => {},
 });
 
-export const useNewProductsContext = () => useContext(NewProductsContext);
+export const useProductsContext = () => useContext(ProductsContext);
 
-export const NewProductsContextProvider = ({
+export const ProductsContextProvider = ({
 	children,
 	value,
-}: NewProductsProviderProps) => {
+}: ProductsProviderProps) => {
 	const [products, setProducts] = useState<ProductDataType[]>(value);
 	const [filteredProducts, setFilteredProducts] =
 		useState<ProductDataType[]>(value);
@@ -108,8 +106,8 @@ export const NewProductsContextProvider = ({
 	);
 
 	return (
-		<NewProductsContext.Provider value={state}>
+		<ProductsContext.Provider value={state}>
 			{children}
-		</NewProductsContext.Provider>
+		</ProductsContext.Provider>
 	);
 };

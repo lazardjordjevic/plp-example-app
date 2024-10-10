@@ -4,13 +4,13 @@ import { useCallback, useRef } from "react";
 import { useLabelsContext } from "src/contexts/LabelsContext";
 import style from "./FilterSearch.module.scss";
 import type { MouseEventHandler } from "react";
-import { useNewProductsContext } from "src/contexts/NewProductsContext";
+import { useProductsContext } from "src/contexts/ProductsContext";
 
 export default function ClientFilterSearch() {
 	const submitButtonRef = useRef<HTMLButtonElement>(null);
 	const searchInputRef = useRef<HTMLInputElement>(null);
 	const labelsContext = useLabelsContext();
-	const { submitSearch } = useNewProductsContext();
+	const { submitSearch } = useProductsContext();
 
 	const { searchByKeyword } = labelsContext;
 
