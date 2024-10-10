@@ -1,4 +1,7 @@
 import { ClientProviders } from "src/contexts/ClientProviders";
+import { fetchFilters } from "src/services/filtersService";
+import { fetchLabels } from "src/services/labelsService";
+import { fetchProducts } from "src/services/productsService";
 import ClientFilterGroupsCategory from "src/components/Filter/FilterGroups/ClientFilterGroupsCategory";
 import ClientFilterSearch from "src/components/Filter/FilterSearch/ClientFilterSearch";
 import ClientHeader from "src/components/Header/ClientHeader";
@@ -7,9 +10,9 @@ import React from "react";
 
 export default async function IndexPage() {
 	const [labelsData, filtersGroupData, productsData] = await Promise.all([
-		(await fetch(`${process.env.NEXT_PUBLIC_API_URL}/labels`)).json(),
-		(await fetch(`${process.env.NEXT_PUBLIC_API_URL}/filters`)).json(),
-		(await fetch(`${process.env.NEXT_PUBLIC_API_URL}/results`)).json(),
+		fetchLabels(),
+		fetchFilters(),
+		fetchProducts(),
 	]);
 
 	return (

@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from "react";
 import type { ReactNode } from "react";
-import type { FilterGroupDataType } from "src/types/FilterGroupsData";
+import type { FilterGroupDataType } from "src/types/FiltersData";
 
 const FilterGroupsContext = createContext<FilterGroupDataType[] | null>(null);
 

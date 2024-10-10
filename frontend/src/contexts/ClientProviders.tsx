@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 import { LabelsContextProvider } from "./LabelsContext";
 import type { LabelsDataType } from "src/types/LabelsData";
 import { FilterGroupsContextProvider } from "./FilterGroupsContext";
-import type { FilterGroupDataType } from "src/types/FilterGroupsData";
-import { ProductsContextProvider } from "./ProductsContext";
+import type { FilterGroupDataType } from "src/types/FiltersData";
 import type { ProductDataType } from "src/types/ProductsData";
+import { NewProductsContextProvider } from "./NewProductsContext";
 
 export type ClientProvidersProps = {
 	children: ReactNode;
@@ -24,9 +24,9 @@ export const ClientProviders = ({
 	return (
 		<LabelsContextProvider value={labels}>
 			<FilterGroupsContextProvider value={filterGroups}>
-				<ProductsContextProvider value={products}>
+				<NewProductsContextProvider value={products}>
 					{children}
-				</ProductsContextProvider>
+				</NewProductsContextProvider>
 			</FilterGroupsContextProvider>
 		</LabelsContextProvider>
 	);
