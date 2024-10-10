@@ -29,22 +29,20 @@ export default function ClientFilterSearch() {
 
 	return (
 		<div className={style["filter-input"]}>
-			<div className={style["filter-input__title"]}>{searchByKeyword}</div>
-			<div className={style["filter-input__input"]}>
-				<input
-					className={style["filter-input__input-field"]}
-					onChange={handleSearchChange}
-					ref={searchInputRef}
-					type="text"
-				/>
-			</div>
+			<h3 className={style["filter-input__title"]}>{searchByKeyword}</h3>
+			<input
+				className={style["filter-input__input-field"]}
+				onChange={handleSearchChange}
+				ref={searchInputRef}
+				type="text"
+			/>
 			<button
 				className={style["filter-input__button"]}
 				onClick={handleSubmit}
 				ref={submitButtonRef}
 				type="button"
 			>
-				submit
+				Submit
 			</button>
 		</div>
 	);

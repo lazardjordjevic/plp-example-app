@@ -59,6 +59,7 @@ export default [
 		rules: {
 			// Recommended
 			useLiteralKeys: "off",
+			noArrayIndexKey: "off",
 			"constructor-super": "error",
 			"for-direction": "error",
 			"getter-return": "error",

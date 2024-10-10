@@ -1,0 +1,18 @@
+@use 'src/styles/mixins' as bp;
+
+.filter-groups {
+  display: flex;
+  justify-content: space-between;
+
+  @include bp.respond-from('md') {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 60px;
+  }
+
+  @include bp.respond-until('md') {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+  }
+}

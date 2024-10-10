@@ -1,0 +1,43 @@
+@use 'src/styles/mixins' as bp;
+
+.filter-input {
+  width: 50%;
+
+  @include bp.respond-from('md') {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 60px;
+  }
+
+  @include bp.respond-until('md') {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+  }
+}
+
+.filter-input__title {
+  margin-bottom: 10px;
+}
+
+.filter-input__input-field {
+  border-radius: 4px;
+  color: #2d2e2c;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.filter-input__button {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #2d2e2c;
+}

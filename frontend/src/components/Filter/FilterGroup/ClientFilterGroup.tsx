@@ -1,20 +1,18 @@
 "use client";
 
 import { useCallback } from "react";
-import style from "./FilterGroup.module.scss";
 import { useProductsContext } from "src/contexts/ProductsContext";
+import style from "./FilterGroup.module.scss";
 
 export type FilterGroupDataType = {
-	groupCategory: string;
 	filters: string[];
+	groupCategory: string;
 };
 
 export default function ClientFilterGroup({
-	groupCategory,
 	filters,
+	groupCategory,
 }: FilterGroupDataType) {
-	console.log("ClientFilterGroup", groupCategory, filters);
-
 	const productsContext = useProductsContext();
 
 	const handleFilterGroupClick = useCallback(
@@ -25,7 +23,6 @@ export default function ClientFilterGroup({
 			filterSelection: string,
 			groupCategory: string,
 		) => {
-			console.log("filterSelection", filterSelection, groupCategory);
 			productsContext.filterByGroup(filterSelection, groupCategory);
 		},
 		[productsContext],
